@@ -624,14 +624,14 @@ export default class extends Component {
     switch (e) {
       case 'dragging':
         this.internals.isScrolling = true
-        this.props.onScrollBeginDrag && this.props.onScrollBeginDrag(e, this.fullState())
+        this.props.onScrollBeginDrag && this.props.onScrollBeginDrag(e, this.fullState(), this)
         break
       case 'settling':
-        this.props.onScrollSettlingDrag && this.props.onScrollSettlingDrag(e, this.fullState())
+        this.props.onTouchEnd && this.props.onTouchEnd(e, this.fullState(), this)
         break
       case 'idle':
         this.internals.isScrolling = false
-        this.props.onScrollEndDrag && this.props.onScrollEndDrag(e, this.fullState())
+        this.props.onScrollEndDrag && this.props.onScrollEndDrag(e, this.fullState(), this)
         break
     }
   }
